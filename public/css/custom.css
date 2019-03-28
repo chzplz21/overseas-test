@@ -1,0 +1,8 @@
+.hotelContainer {
+    border: solid green;
+    margin-bottom: 20px;
+}
+
+.roomsContainer {
+    display: none;
+}
