@@ -13,4 +13,6 @@
 
 
 //Front Page
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HotelController@hotels');
+Route::get('/getRooms', 'HotelController@rooms');
+

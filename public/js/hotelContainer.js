@@ -1,30 +1,58 @@
+
  //Handles toggle down for hotel container
- var  hotelContainer = (function() {
+ var  hotelProto = function() {
 
-    var showAvailableButtons = document.getElementsByClassName('showAvailable');
+    this.showAvailableButtons = document.getElementsByClassName('showAvailable');
 
-  
-    function bindFunctions() {
-      for (let button of showAvailableButtons) {
-          button.addEventListener('click', showHidden, false);
+
+    this.bindFunctions = function() {
+      
+      for (let button of this.showAvailableButtons) {
+          button.addEventListener('click', this.requestForRooms, false);
       }
     
     }
 
     //Displays hidden area, the rooms details
-    function showHidden() {
+    this.showHidden = function() {
+      console.log('boo');
+      /*
         var container = this.parentNode;
         var hiddenDiv = container.querySelector('.roomsContainer');
         hiddenDiv.style.display = 'block'; 
+        hiddenDiv.innerHTML = roomsTemplate;
+        */
     }
 
-    var init = function() {
-      bindFunctions();
+ 
+    //jquery ajax requests rooms in hotel
+    this.requestForRooms = function() {
+      console.log(this);
+      /*
+      $.ajax({
+        type: 'GET', 
+        url : "/overseas-test/getRooms", 
+        data: {
+          id: 3
+        },
+        success : function (roomsTemplate) {
+
+           
+        }
+    });
+    */
+    }
+
+
+    
+
+    
+
+    this.init = function() {
+      this.bindFunctions();
 
     };
 
-    return {
-     init: init
-    }
+   
 
-})();
+}

@@ -1,8 +1,9 @@
 
 $( document ).ready(function() {
     
-    hotelContainer.init();
+    var hotel = new hotelProto();
+    hotel.init();
+   
+    //rooms.init();
  
-
-
 });
