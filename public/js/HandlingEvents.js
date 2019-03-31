@@ -7,23 +7,27 @@ function HandlingEvents(hotelContainer, listenedElement, revealedElement, ajaxUR
     
 }
 
+//"abstract" methods
+HandlingEvents.prototype.setParent= function(event) {}
+HandlingEvents.prototype.instantiateNext= function(event) {}
 
 HandlingEvents.prototype.bindFunctions = function() {
     for (let button of this.listenedElement) {
-      button.addEventListener('click', this.makeRequest.bind(this), false);
+    
+      button.addEventListener('click', this.setParentElement.bind(this), false);
     }
 } 
 
 
 HandlingEvents.prototype.showHidden = function(BladeHTML) {
     var hiddenDiv = this.hotelContainer.querySelector(this.revealedElement);
-    hiddenDiv.innerHTML = BladeHTML;  
+    hiddenDiv.innerHTML = BladeHTML; 
+    this.instantiateNext(); 
 }
 
 
-HandlingEvents.prototype.makeRequest = function(event) {
-    var ParentContainer = event.target.parentNode;
-    var elementID = ParentContainer.dataset.id;
+HandlingEvents.prototype.makeRequest = function(elementID) {
+    
     $.ajax({
       type: 'GET', 
       context: this,

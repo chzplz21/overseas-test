@@ -1,4 +1,4 @@
-<div class = "hotelContainer" data-hotelid= "{{$hotel->id}}">
+<div class = "hotelContainer" data-id= "{{$hotel->id}}">
           
         <p>{{$hotel->name}}</p>
         <p>{{$hotel->street}}</p>

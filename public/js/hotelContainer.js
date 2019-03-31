@@ -18,6 +18,7 @@
     this.showHidden = function(roomsHTML) {
       var hiddenDiv = this.hotelContainer.querySelector('.roomsContainer');
       hiddenDiv.innerHTML = roomsHTML;
+     
       
       var rooms = new roomObject(this.hotelContainer, "detailsButton",  ".roomFull", "/overseas-test/getRoomDetails");
       //console.log(rooms.name);
