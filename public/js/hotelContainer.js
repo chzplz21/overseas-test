@@ -3,50 +3,57 @@
  var  hotelProto = function() {
 
     this.showAvailableButtons = document.getElementsByClassName('showAvailable');
-
+    this.hotelContainer;
 
     this.bindFunctions = function() {
-      
+
       for (let button of this.showAvailableButtons) {
-          button.addEventListener('click', this.requestForRooms, false);
+          button.addEventListener('click', this.requestForRooms.bind(this), false);
       }
     
     }
 
+
     //Displays hidden area, the rooms details
-    this.showHidden = function() {
-      console.log('boo');
-      /*
-        var container = this.parentNode;
-        var hiddenDiv = container.querySelector('.roomsContainer');
-        hiddenDiv.style.display = 'block'; 
-        hiddenDiv.innerHTML = roomsTemplate;
-        */
+    this.showHidden = function(roomsHTML) {
+      var hiddenDiv = this.hotelContainer.querySelector('.roomsContainer');
+      hiddenDiv.innerHTML = roomsHTML;
+      
+      var rooms = new roomObject(this.hotelContainer, "detailsButton",  ".roomFull", "/overseas-test/getRoomDetails");
+      //console.log(rooms.name);
+      rooms.init(); 
+      
+      
     }
 
  
-    //jquery ajax requests rooms in hotel
-    this.requestForRooms = function() {
-      console.log(this);
-      /*
+
+    //this refers to the hotelProto object
+    //event.target refers to the clicked button
+    this.requestForRooms = function(event) {
+      
+      this.hotelContainer = event.target.parentNode;
+      var hotelID = this.hotelContainer.dataset.hotelid;
+      
       $.ajax({
         type: 'GET', 
         url : "/overseas-test/getRooms", 
+        context: this,
         data: {
-          id: 3
+          id: hotelID
         },
         success : function (roomsTemplate) {
-
-           
+            roomsHTML = roomsTemplate.html;
+            this.showHidden( roomsHTML);
+        },
+        error : function(request,error)
+        {
+            console.log(error);
         }
-    });
-    */
+      });
+      
     }
 
-
-    
-
-    
 
     this.init = function() {
       this.bindFunctions();

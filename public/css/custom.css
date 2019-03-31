@@ -1,8 +1,31 @@
 .hotelContainer {
     border: solid green;
     margin-bottom: 20px;
+    width: 60%;
+    margin: 0 auto;
 }
 
+
 .roomsContainer {
-    display: none;
+ 
 }
+
+.roomDetails {
+    display: inline-block;
+    margin-right: 
+}
+
+.roomName {
+    width: 25%;
+    border: solid red;
+}
+
+.red {
+    border: solid red;
+}
+
+.yellow {
+    border: solid yellow;
+}
+
+

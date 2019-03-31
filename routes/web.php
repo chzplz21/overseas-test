@@ -15,4 +15,5 @@
 //Front Page
 Route::get('/', 'HotelController@hotels');
 Route::get('/getRooms', 'HotelController@rooms');
+Route::get('/getRoomDetails', 'HotelController@roomDetails');
 

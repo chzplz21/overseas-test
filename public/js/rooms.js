@@ -1,23 +1,13 @@
  //Handles toggle down for hotel container
- var  rooms = (function() {
+ var roomObject = function(hotelContainer, listenedElement, revealedElement, ajaxURL) {
+    HandlingEvents.call(this, hotelContainer, listenedElement, revealedElement, ajaxURL);
+    console.log(this.hotelContainer);
+}
 
-    
-    
+roomObject.prototype = new HandlingEvents();
+console.log(roomObject.prototype);
 
-    function bindFunctions() {
-      
-    
-    }
-
-   
-
-    var init = function() {
-      bindFunctions();
-
-    };
-
-    return {
-     init: init
-    }
-
-})();
+/*
+roomObject.prototype = Object.create(HandlingEvents.prototype);
+roomObject.prototype.constructor = roomObject;
+*/

@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="{{{ asset('images/favicon.ico') }}}">
     -->
     <link rel = "stylesheet" href = "{{asset('public/css/custom.css')}}">
+    <link rel = "stylesheet" href = "{{asset('public/css/roomDetails.css')}}">
 
  
     
@@ -25,9 +26,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <!--custom scripts -->
+<script src= "{{asset('public/js/HandlingEvents.js')}}"></script>
 <script src= "{{asset('public/js/hotelContainer.js')}}"></script>
 <script src= "{{asset('public/js/rooms.js')}}"></script>
 <script src =  "{{asset('public/js/custom.js')}}"> </script>
+<script src= "{{asset('public/js/testingClicks.js')}}"></script>
 
 </body>
 

@@ -26,4 +26,16 @@ class HotelController extends Controller
         ]);
         
     }
+
+    public function roomDetails(Request $request) {
+       $roomID = $request->query('id');
+        $room = Rooms::where('id', $roomID)->first();
+        $returnHTML = view('hotel.roomDetails')->with('room', $room)->render();
+        return response()->json([
+            'html' => $returnHTML
+            
+        ]);
+
+    }
+
 }

@@ -3,7 +3,9 @@ $( document ).ready(function() {
     
     var hotel = new hotelProto();
     hotel.init();
-   
-    //rooms.init();
+
+    var clickTest = new testingClicks();
+    clickTest.init();
+    
  
 });
