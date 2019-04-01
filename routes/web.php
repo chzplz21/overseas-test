@@ -13,7 +13,8 @@
 
 
 //Front Page
-Route::get('/', 'HotelController@hotels');
+Route::get('/', 'HotelController@hotels')->name('home');;
 Route::get('/getRooms', 'HotelController@rooms');
 Route::get('/getRoomDetails', 'HotelController@roomDetails');
+Route::post('/selectRoom', 'HotelController@store');
 

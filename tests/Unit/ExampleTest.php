@@ -33,4 +33,15 @@ class HotelTests extends TestCase
 
         //$this->assertTrue(true);
     }
+
+    public function testStore()
+    {   
+        $id = 1;
+        //$getRequest = $this->get('/user', ['id' => 1]);
+        $hotel = new HotelController;
+        $room = $hotel->store($id);
+        fwrite(STDERR, print_r($room, TRUE));
+
+        //$this->assertTrue(true);
+    }
 }

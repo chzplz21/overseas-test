@@ -10,6 +10,7 @@
     -->
     <link rel = "stylesheet" href = "{{asset('public/css/custom.css')}}">
     <link rel = "stylesheet" href = "{{asset('public/css/roomDetails.css')}}">
+    <link rel = "stylesheet" href = "{{asset('public/css/modal.css')}}">
 
  
     
@@ -27,10 +28,9 @@
 
 <!--custom scripts -->
 <script src= "{{asset('public/js/HandlingEvents.js')}}"></script>
-<script src= "{{asset('public/js/hotelContainer.js')}}"></script>
-
-<script src= "{{asset('public/js/rooms.js')}}"></script>
-<script src= "{{asset('public/js/hotelContainerTwo.js')}}"></script>
+<script src= "{{asset('public/js/ModalObject.js')}}"></script>
+<script src= "{{asset('public/js/RoomObject.js')}}"></script>
+<script src= "{{asset('public/js/HotelObject.js')}}"></script>
 <script src =  "{{asset('public/js/custom.js')}}"> </script>
 <script src= "{{asset('public/js/testingClicks.js')}}"></script>
 

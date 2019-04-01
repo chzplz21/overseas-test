@@ -6,12 +6,18 @@ $( document ).ready(function() {
     hotel.init();
 */
 
-    var hotel = new HotelContainerTwo("", 'showAvailable', '.roomsContainer', '/overseas-test/getRooms');
+    var hotel = new HotelObject('showAvailable', '.roomsContainer', '/overseas-test/getRooms', '.hotelContainer');
     hotel.init();
 
     
     var clickTest = new testingClicks();
     clickTest.init();
+    clickTest.callWait(".detailsButton", function() {
+        console.log("details shown");
+    });
+    clickTest.callWait(".requestButton", function() {
+        clickTest.AddFormValues();
+    });
     
  
 });
