@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        'App\Console\Commands\SendLogEmails'
     ];
 
     /**
@@ -26,6 +27,14 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        //Every 20 minutes send logEmails
+        $schedule->command('logEmails')
+         ->cron('*/20 * * * *');
+        
+         $schedule -> exec("php artisan schedule:run");
+
+
     }
 
     /**

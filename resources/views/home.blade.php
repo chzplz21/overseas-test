@@ -3,12 +3,7 @@
 @section('content')
 
 
-    
-    <h1 id = "hey">Hey</h1>
-
-    <input id = "kk"></input>
-
-    
+   <h1>Overseas Leisure Test</h1>   
 
     @foreach ($hotels as $hotel)
         @include('hotel.hotel')  

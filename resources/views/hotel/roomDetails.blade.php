@@ -1,27 +1,34 @@
+
 <div class = "row">
     <div class = "col-md-3">
-        <div class = "bedButton">King</div>
-        <div class = "bedButton">Daybed</div>
+        <button class = "btn bedButton">King</button>
+        <button class = "btn bedButton">Daybed</button>
     </div>
     <div class = "col-md-9">
-        @for($i=0; $i<$room->people; $i++) {
-            <div class = "littlePerson">person</div>
-        }
+        @for($i=0; $i<$room->people; $i++) 
+            <i class="fas fa-user"></i>
+    
         @endfor
     </div>
 
 </div>
 
 <div class = "row">
-    <div class = "col-md-9">
-        sdfslkfdj
+    <div class = "dateHolder col-md-9">
+        <p>{{$room->date}}</p>
+        <hr>
+        <p>${{$room->price}} USD</p>
+        <br>
+        <p>Conditions and Offers:</p>
+        <p>Meal Plan, Breakfast Included</p>
+
 
     </div>
     <div class = "col-md-3 priceDetails">
-        <p>Price: {{$room->price}}</p>
-        <p>Taxes: {{$room->price}}</p>
-        <p>Fees: </p>
-        <p>Total: </p>
+        <p>Price: {{$room->price}} USD</p>
+        <p>Taxes: {{$room->taxes}} USD</p>
+        <p>Fees: 0.00 USD</p>
+        <p>Total: <b>{{$room->total}}</b> USD</p>
     </div>
 
 </div>

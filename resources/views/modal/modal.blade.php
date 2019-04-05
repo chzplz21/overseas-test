@@ -10,13 +10,16 @@
         </div>
 
     @endif
+   
+   <p class = "BookingDetails nameOfPlace"> {{$room->hotelName}}</p>
+   <p class = "BookingDetails nameOfPlace"> {{$room->name}}</p>
+   <div class = "bookingSmallDetails">
+    <p class = "BookingDetails"> Date: {{$room->date}}</p>
+    <p class = "BookingDetails "> Price: {{$room->price}}</p>
+    <p class = "BookingDetails "> Taxes: {{$room->taxes}}</p>
+    <p class = "BookingDetails "> Total: {{$room->total}}</p>
+   </div>
 
-   <p class = "BookingDetails"> Booking for {{$room->name}}</p>
-   <p class = "BookingDetails"> Date:  {{$room->date}}</p>
-   <p class = "BookingDetails">Price: ${{$room->price}}</p>
-   <p class = "BookingDetails">Fees: {{$room->fees}}</p>
-   <p class = "BookingDetails">Taxes: {{$room->taxes}}</p>
-   <p class = "BookingDetails">Total: {{$room->total}} </p> 
 
     {{ csrf_field() }}
     <div class="form-group">
@@ -33,5 +36,6 @@
     </div>
 
     <button type="button" class="btn btn-primary modalSubmit">Submit</button>
+    <button type="button" class="btn btn-danger modalCancel">Cancel</button>
 
 </form>

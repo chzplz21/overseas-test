@@ -10,3 +10,34 @@
 .priceDetails {
     text-align: right;
 }
+
+.onRequest {
+    color: #FF851B; 
+}
+
+.detailsButton {
+    color: #0074D9;
+}
+
+.usd {
+    font-size: 10px;
+}
+
+.requestButton {
+    color: #0074D9;
+
+}
+
+.requestButton:hover, .detailsButton:hover {
+    cursor: pointer;
+}
+
+.bedButton {
+    font-size: 10px;
+}
+
+.dateHolder p, .priceDetails p, .dateHolder hr {
+    margin: 0 !important;
+    
+    font-size: 12px;
+}

@@ -8,15 +8,18 @@ var testingClicks = function() {
         var event = new CustomEvent("click");
         // Dispatch/Trigger/Fire the event
         showAvailable.dispatchEvent(event);
-        var hotelContainer = showAvailable.parentNode;
+        var hotelContainer = HandlingEvents.getClosest(showAvailable, ".hotelContainer");
+
         this.roomsContainer = hotelContainer.querySelector('.roomsContainer');
-         
+        console.log("what")
+      
     }
 
     this.callWait = function(element, callBack) {
       
       var that = this;
       waitForElement(element, function() {
+      
           var Button = that.roomsContainer.querySelector(element);
           var event = new CustomEvent("click");
           Button.dispatchEvent(event);
@@ -44,8 +47,8 @@ var testingClicks = function() {
       form.querySelector(".creditCard").value = "Visa";
       form.querySelector(".creditCardNumber").value = 134567;
       var subButton = form.querySelector(".modalSubmit");
-      var event = new CustomEvent("click");
-      subButton.dispatchEvent(event);
+     // var event = new CustomEvent("click");
+     // subButton.dispatchEvent(event);
 
       
 

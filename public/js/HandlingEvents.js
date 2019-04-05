@@ -1,3 +1,5 @@
+
+
 function HandlingEvents(listenedElement, revealedElement, ajaxURL, searchedForElement) {
     
     this.listenedElement= document.getElementsByClassName(listenedElement);
@@ -15,61 +17,74 @@ function HandlingEvents(listenedElement, revealedElement, ajaxURL, searchedForEl
 
       }
     }
-
-  
+ 
 }
 
 
 HandlingEvents.prototype.bindFunctions = function() {
   for (let button of this.listenedElement) {
-    button.addEventListener('click', this.setParentElement.bind(this), false);
+    button.addEventListener('click', function(event) {
+      this.setParentElement(event, this.ajaxURL, this.showHidden);
+      this.setParentElement(event, "/overseas-test/logClick", this.finishLog);
+    }.bind(this), false);
+    
   }
 } 
 
-
-
-HandlingEvents.prototype.setParentElement = function (event) {
+HandlingEvents.prototype.setParentElement = function (event, requestURL, callBack) {
   this.ParentContainer = HandlingEvents.getClosest(event.target, this.searchedForElement);
-  var elementID =  this.ParentContainer.dataset.id;
-  this.makeRequest(elementID);
+  var elementID =  this.ParentContainer.dataset.id;   
+  this.makeRequest(elementID, requestURL, callBack);  
  
 };
 
 
 
-HandlingEvents.prototype.makeRequest = function(elementID) {
+HandlingEvents.prototype.makeRequest = function(elementID, requestURL, callBack) {
+    
+   var callBackFunction = callBack.bind(this);
    
     $.ajax({
       type: 'GET', 
       context: this,
-      url : this.ajaxURL, 
+      url : requestURL, 
       data: {
         id: elementID
       },
-      success : function (BladeTemplate) {
-        var BladeHTML = BladeTemplate.html;
-    
-        this.showHidden( BladeHTML);
+      success : function (result) {
+
+        callBackFunction( result);
+ 
       },
       error : function(request,error)
       {
           console.log(error);
       }
     });
+    
+}
 
-  }
 
 
-
-  HandlingEvents.prototype.showHidden = function(BladeHTML) {
+  HandlingEvents.prototype.showHidden = function(BladeTemplate) {
+   
+    var BladeHTML = BladeTemplate.html;
     var hiddenDiv =  this.ParentContainer.querySelector(this.revealedElement);
     hiddenDiv.innerHTML = BladeHTML; 
     this.InstantiateNext();
+    
+  }
+
+
+  //logs a click for show/available, or details
+  HandlingEvents.prototype.finishLog = function(event) {
+    
   }
 
 
 
 HandlingEvents.prototype.init = function() {
+    
     this.bindFunctions();
 };
 

@@ -3,7 +3,6 @@ var ModalObject = function() {
 
     var requestButtons = document.getElementsByClassName("requestButton");
     
-    
     this.bindFunctions = function() {
         for (let button of requestButtons) {
           button.addEventListener('click', this.showModal.bind(this), false);
@@ -12,20 +11,41 @@ var ModalObject = function() {
     }
     
     this.showModal = function(event) {
+        event.stopPropagation()
+        console.log("modal")
         this.ParentContainer = HandlingEvents.getClosest(event.target, ".singleRoomParent");
-        var modal =  this.ParentContainer.querySelector('.modalWrapper');
-        modal.style.display = "block";
+        this.hotelContainer = HandlingEvents.getClosest(event.target, ".hotelContainer");
+        this.hotelID =  this.hotelContainer.dataset.id;   
+      
+        this.modal =  this.ParentContainer.querySelector('.modalWrapper');
+        this.modal.style.display =  this.modal.style.display === 'none' ? 'block' : 'none';
         this.submittedForm = this.ParentContainer.querySelector('.modalForm');
+      
+        this.submittedForm.style.display = "block";
+        this.formCancel();
         var modalSubmitButton = this.ParentContainer.querySelector('.modalSubmit');
         modalSubmitButton.addEventListener('click', this.submitModal.bind(this), false);
 
         
     }
 
+    this.formCancel = function() {
+        var modalCancel = this.submittedForm.querySelector('.modalCancel');
+  
+        modalCancel.addEventListener('click', function() {
+            this.modal.style.display = 'none';
+        }.bind(this), false);
+
+    }
+
+
+
 
     this.submitModal = function(event) {
 
         var arr = new FormData(this.submittedForm);
+        arr.append("hotel_id", this.hotelID);
+        
         
         $.ajax({
             type: 'POST', 
@@ -35,7 +55,6 @@ var ModalObject = function() {
             contentType: false, 
             data: arr,
             success : function () {
-             
                this.ShowThankYou();
              
             },
@@ -58,9 +77,8 @@ var ModalObject = function() {
 
 
     this.backToNormal = function() {
-        console.log(this.ParentContainer);
+     
         var modal =  this.ParentContainer.querySelector('.modalWrapper');
-        console.log(modal);
         this.thankyou.style.display= "none";
         modal.style.display = "none";
     }
