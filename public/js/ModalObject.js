@@ -50,7 +50,7 @@ var ModalObject = function() {
         $.ajax({
             type: 'POST', 
             context: this,
-            url : "/overseas-test/selectRoom",
+            url : "selectRoom",
             processData: false,
             contentType: false, 
             data: arr,

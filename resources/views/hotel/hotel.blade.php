@@ -3,7 +3,7 @@
               <div class = "row hotelRow">
                       
                 <div class = "imageContain col-md-3">
-                      <img class = "hotelImage" src="/overseas-test/public/images/{{$hotel->img}}.jpg">
+                      <img class = "hotelImage" src="public/images/{{$hotel->img}}.jpg">
                 </div>
                 
                 <div class = "col-md-6">

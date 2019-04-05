@@ -25,7 +25,7 @@ HandlingEvents.prototype.bindFunctions = function() {
   for (let button of this.listenedElement) {
     button.addEventListener('click', function(event) {
       this.setParentElement(event, this.ajaxURL, this.showHidden);
-      this.setParentElement(event, "/overseas-test/logClick", this.finishLog);
+      this.setParentElement(event, "logClick", this.finishLog);
     }.bind(this), false);
     
   }

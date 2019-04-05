@@ -3,11 +3,12 @@ $( document ).ready(function() {
     
  
 
-    var hotel = new HotelObject('showAvailable', '.roomsContainer', '/overseas-test/getRooms', '.hotelContainer');
+    var hotel = new HotelObject('showAvailable', '.roomsContainer', 'getRooms', '.hotelContainer');
     hotel.init();
 
   //For testing
   
+  /*
     var clickTest = new testingClicks();
     clickTest.init();
     
@@ -20,6 +21,8 @@ $( document ).ready(function() {
     clickTest.callWait(".requestButton", function() {
         clickTest.AddFormValues();
     });
+
+    */
     
 
 

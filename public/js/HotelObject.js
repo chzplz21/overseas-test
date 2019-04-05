@@ -10,7 +10,7 @@ HotelObject.prototype = new HandlingEvents();
 HotelObject.prototype.InstantiateNext = function() {
 
 
-    var rooms = new RoomObject("detailsButton",  ".roomFull", "/overseas-test/getRoomDetails", ".singleRoomParent");
+    var rooms = new RoomObject("detailsButton",  ".roomFull", "getRoomDetails", ".singleRoomParent");
     rooms.init(); 
 
     var modal = new ModalObject();
